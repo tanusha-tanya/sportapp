@@ -9,7 +9,7 @@
             <v-list-tile
               v-for="link of links"
               :key="link.title"
-              :to="link.url"
+              :href="link.url"
             >
               <v-list-tile-action>
                 <v-icon>{{link.icon}}</v-icon>
@@ -21,7 +21,7 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-toolbar app dark color="primary">
+      <v-toolbar app dark>
         <v-toolbar-side-icon
           @click="drawer = !drawer"
           class="hidden-md-and-up"
@@ -32,7 +32,7 @@
           <v-btn
             v-for="link in links"
             :key="link.title"
-            :to="link.url"
+            :href="link.url"
             flat>
             <v-icon left>{{link.icon}}</v-icon>
             {{link.title}}</v-btn>
@@ -48,11 +48,7 @@
 
 <script>
 
-export default {
-  name: 'App',
-  components: {
-    //
-  },
+export default {  
   data () {
     return {
       drawer: false,
