@@ -26,7 +26,9 @@
           @click="drawer = !drawer"
           class="hidden-md-and-up"
         ></v-toolbar-side-icon>
-        <v-toolbar-title>Sport application</v-toolbar-title>
+        <v-toolbar-title>
+          <router-link to="/" tag="span" class="pointer"> Sport application </router-link>
+        </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
           <v-btn
@@ -48,7 +50,7 @@
 
 <script>
 
-export default {  
+export default {
   data () {
     return {
       drawer: false,
@@ -59,3 +61,8 @@ export default {
   }
 }
 </script>
+<style scope>
+.pointer{
+  cursor: pointer;
+}
+</style>

@@ -3,7 +3,9 @@
     <v-layout row>
       <v-flex>
         <h1 class="display-4">Description</h1>
-        <p>Это прототип приложения для мотивации и самосовершенствования</p>
+        <v-layout mt-5>
+          <p >This is a prototype of the application for motivation and self-improvement.</p>
+        </v-layout>
       </v-flex>
     </v-layout>
   </v-container>
