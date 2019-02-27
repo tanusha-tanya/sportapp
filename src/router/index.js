@@ -22,7 +22,7 @@ export default new Router({
       path: '/detail/:id',
       props: true,
       name: 'detail',
-      component: Detail
+      component: Detail,
     }
   ],
   mode: 'history'
