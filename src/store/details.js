@@ -3,31 +3,35 @@ export default{
     cards:[
       {
         title: 'For legs',
-        level: 'beginner',
-        imgSource: 'http://www.veincenteratiowaheart.com/upl/images/blog/three-exercises-your-legs-will-love-you-for.jpg',
+        level: 'Middle',
+        imgSource: '../assets/for_legs.jpg',
         id: '1',
-        time: '25 min'
+        time: '25 min',
+        exercisesId: [0,1,2,4,5,7]
       },
       {
         title: 'Stretching',
-        level: 'beginner',
-        imgSource: 'http://fitago.ru/images/cache/d93ec0593458c144668b70c4a8388e61_w800_h531.jpg',
+        level: 'Beginner',
+        imgSource: '../assets/stretching.jpg',
         id: '2',
-        time: '25 min'
+        time: '25 min',
+        exercisesId: [8]
       },
       {
         title: 'Strength',
         level: 'Hight',
-        imgSource: 'http://stage.xcom-hobby.ru/var/files/84/ce/5731f2084ceea018561888_1000.jpg',
+        imgSource: '../assets/strength.jpg',
         id: '3',
-        time: '25 min'
+        time: '25 min',
+        exercisesId: [3,6,7]
       },
       {
-        title: 'abdominal muscles',
+        title: 'Abdominal muscles',
         level: 'Hight',
-        imgSource: 'http://pyshnenko.com.ua/wp-content/uploads/2015/09/20140111205131-50611-908x480.jpg',
+        imgSource: '../assets/abdominal_muscules.jpg',
         id: '4',
-        time: '30 min'
+        time: '30 min',
+        exercisesId: [7]
       }
     ]
   },
@@ -41,6 +45,6 @@ export default{
       return cardId => {
         return state.cards.find(card => card.id === cardId)
       }
-    }
+    },
   }
 }

@@ -70,10 +70,11 @@
 
 <script>
 export default{
+  props: ['level'],
   computed:{
-    cards(){
+    cards (){
       return this.$store.getters.cards
-    }
-  }
+    },
+  },
 }
 </script>
