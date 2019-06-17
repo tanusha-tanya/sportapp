@@ -11,13 +11,14 @@
               class="grey darken-4"
             ></v-img>
             <v-card-title class="title">{{card.level}}
-              <v-icon left right>access_time</v-icon>
-              {{card.time}}
-              <v-btn color="success">Start</v-btn>
+              <v-icon right class="mr-1">access_time</v-icon>
+              {{timeCard(card.exercisesId.length) + ' sec'}}
+              <v-btn :color="IsTimerStarted? 'error' : 'success'" @click="ChangeTimer">{{IsTimerStarted? "Stop": "Start"}}</v-btn>
+              <timer v-if="IsTimerStarted" :currentTime="timeCard(card.exercisesId.length)"/>
             </v-card-title>            
             <v-list two-line>
             <v-subheader>Set of exercises</v-subheader>
-            <div v-for="exercisesId in card.exercisesId" :key="exercisesId">  
+            <div v-for="exercisesId in card.exercisesId" :key="exercisesId" >  
               <v-list-tile :to="'/exercise/' + exercises[exercisesId].id">
                   <v-list-tile-avatar>
                     <img :src="exercises[exercisesId].avatar">
@@ -36,6 +37,8 @@
   </v-container>
 </template>
 <script>
+import Timer from '@/components/MyComponents/Timer.vue'
+
 export default{
   props: ['id'],
   computed: {
@@ -46,6 +49,24 @@ export default{
     exercises (){
        return this.$store.getters.exercises
     },
+  },
+  data(){
+    return{
+      buttonText: 'Start',
+      IsTimerStarted: false
+    }
+  },
+  components: {
+    Timer
+  },
+  methods:{
+    ChangeTimer(){
+      this.IsTimerStarted = !this.IsTimerStarted
+    },
+    timeCard(quantity){
+      let time = quantity*20 + quantity*5;
+      return time
+    }
   }
 }
 </script>

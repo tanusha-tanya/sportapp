@@ -17,7 +17,7 @@
             :key="card.title"
           >
             <v-card
-              color="purple"
+              :color="colorLevel(card.level)"
               class="white--text"
               :to="'/detail/' + card.id"
               >
@@ -70,11 +70,26 @@
 
 <script>
 export default{
-  props: ['level'],
   computed:{
     cards (){
       return this.$store.getters.cards
+    },   
+    colored(){
+      return 'blue'
+    }
+  }, 
+  methods:{
+     colorLevel(level){
+      if(level === 'Beginner'){
+        return 'purple'
+      }
+      else if(level === 'Middle'){
+        return 'blue'
+      }
+      else{
+        return 'pink'
+      }
     },
-  },
+  }
 }
 </script>

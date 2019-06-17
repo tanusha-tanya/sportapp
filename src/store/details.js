@@ -5,7 +5,7 @@ export default{
         title: 'For legs',
         level: 'Middle',
         imgSource: '../assets/for_legs.jpg',
-        id: '1',
+        id: 'forlegs',
         time: '25 min',
         exercisesId: [0,1,2,4,5,7]
       },
@@ -13,7 +13,7 @@ export default{
         title: 'Stretching',
         level: 'Beginner',
         imgSource: '../assets/stretching.jpg',
-        id: '2',
+        id: 'stretching',
         time: '25 min',
         exercisesId: [8]
       },
@@ -21,7 +21,7 @@ export default{
         title: 'Strength',
         level: 'Hight',
         imgSource: '../assets/strength.jpg',
-        id: '3',
+        id: 'strength',
         time: '25 min',
         exercisesId: [3,6,7]
       },
@@ -29,7 +29,7 @@ export default{
         title: 'Abdominal muscles',
         level: 'Hight',
         imgSource: '../assets/abdominal_muscules.jpg',
-        id: '4',
+        id: 'abdominal',
         time: '30 min',
         exercisesId: [7]
       }
