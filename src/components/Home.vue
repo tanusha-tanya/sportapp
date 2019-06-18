@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!loading">
+  <div>
     <v-container>
     <v-layout row>
       <v-flex>
@@ -41,7 +41,13 @@
               <v-divider light></v-divider>
               <v-flex mt-2 mb-2>
                 <v-icon dark>access_time</v-icon>
-                {{card.time}}
+                  {{
+                    timer(
+                      card.time,
+                      card.resting,        
+                      card.quantity,
+                      card.exercisesId.length
+                    )}}
               </v-flex>
             </v-card>
           </v-flex>
@@ -51,21 +57,7 @@
       </v-flex>
     </v-layout>
     </v-container>
-  </div>
-  <div v-else>
-    <v-container>
-      <v-layout row>
-        <v-flex  xs12 class="text-xs-center">
-          <v-progress-circular
-            :size="70"
-            :width="7"
-            color="purple"
-            indeterminate
-         ></v-progress-circular>
-       </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -76,7 +68,7 @@ export default{
     },   
     colored(){
       return 'blue'
-    }
+    },    
   }, 
   methods:{
      colorLevel(level){
@@ -90,6 +82,22 @@ export default{
         return 'pink'
       }
     },
+    timer(time, resting, quantity, length){
+      let timeInSeconds = quantity*(length*time + resting*length-1),
+          timeInMinuts = timeInSeconds/60,
+          min = null, 
+          sec= null, 
+          currentTime = '';
+      if(timeInSeconds % 60 !== 0){
+        min = Math.floor(timeInMinuts);
+        sec = timeInSeconds - min * 60;
+        currentTime = min + ' min ' + sec + ' sec'
+      }
+      else{
+        currentTime = timeInMinuts + 'min'
+      }
+      return currentTime 
+    }
   }
 }
 </script>
