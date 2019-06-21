@@ -28,9 +28,9 @@ export default {
     },
   },
   watch: {
-    currentTime(time) {      
+    currentTime(time) {    
       if (time === 0) {
-        this.stopTimer()
+        this.stopTimer();        
       }
     }
   },
